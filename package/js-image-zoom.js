@@ -294,15 +294,15 @@
             handleMouseMove: function (event) {
                 var offsetX;
                 var offsetY;
-                var backgroundTop;
-                var backgroundRight;
+                var backgroundPositionX;
+                var backgroundPositionY;
                 var backgroundPosition;
                 if (offset) {
                     offsetX = zoomLensLeft(event.clientX - offset.left);
                     offsetY = zoomLensTop(event.clientY - offset.top);
-                    backgroundTop = offsetX * scaleX;
-                    backgroundRight = offsetY * scaleY;
-                    backgroundPosition = '-' + backgroundTop + 'px ' + '-' + backgroundRight + 'px';
+                    backgroundPositionX = offsetX * scaleX;
+                    backgroundPositionY = offsetY * scaleY;
+                    backgroundPosition = '-' + backgroundPositionX + 'px ' + '-' + backgroundPositionY + 'px';
                     data.zoomedImg.element.style.backgroundPosition = backgroundPosition;
                     data.zoomLens.element.style.cssText += 'transform:' + 'translate(' + offsetX + 'px,' + offsetY +'px);display: block;left:0px;top:0px;'
 
@@ -314,8 +314,8 @@
 
             },
             handleMouseLeave: function () {
-                data.zoomedImg.element.style.display = 'none';
-                data.zoomLens.element.style.display = 'none';
+                // data.zoomedImg.element.style.display = 'none';
+                // data.zoomLens.element.style.display = 'none';
             },
             handleScroll: function () {
                 offset = getOffset(data.sourceImg.element);
